@@ -6,7 +6,8 @@ $(document).ready(function () {
 function registerSearch() {
     $("#search").submit(function (ev) {
         event.preventDefault();
-        $.get($(this).attr('action'), {q: $("#q").val()}, function (data) {
+        // Add the maxTweets attribute
+        $.get($(this).attr('action'), {q: $("#q").val(), maxTweets: $("#maxTweets").val()}, function (data) {
             $("#resultsBlock").html(Mustache.render(template, data));
         });
     });
